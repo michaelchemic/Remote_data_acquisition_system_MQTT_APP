@@ -1,33 +1,20 @@
 package com.example.myhome;
+// TODO: 30/10/2024 有个问题，回到MainActivity，MqttActivity里面广播收不到数据。
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.util.Log;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import org.eclipse.paho.android.service.MqttService;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //配置mqtt服务，防止结束activity导致的通信断连。
+        Intent serviceIntent = new Intent(this, MqttService.class);
+        startService(serviceIntent);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
