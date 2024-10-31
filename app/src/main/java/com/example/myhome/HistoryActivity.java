@@ -9,7 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HistoryActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = HistoryActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
